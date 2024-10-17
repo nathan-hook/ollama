@@ -1,0 +1,26 @@
+Stable Diffusion Install
+
+Stable diffusion *might* not quite be ready to deploy inside of docker on a mac...
+https://github.com/AbdBarho/stable-diffusion-webui-docker/issues/35
+
+
+https://github.com/AUTOMATIC1111/stable-diffusion-webui
+https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon
+
+
+$ docker build -t stable-diffusion-webui -f Dockerfile-stable-diffusion-webui .
+
+$ docker container run --network ollama_default -p 7860:7860 --name stable-diffusion-webui --rm -it stable-diffusion-webui bash
+
+
+
+
+./webui.sh --skip-torch-cuda-test
+./webui.sh --skip-torch-cuda-test --precision half # did not work.
+./webui.sh --skip-torch-cuda-test --precision full --no-half --api --listen
+
+  --no-half             do not switch the model to 16-bit floats
+  --no-half-vae         do not switch the VAE model to 16-bit floats
+
+  --precision {full,half,autocast}
+                        evaluate at this precision

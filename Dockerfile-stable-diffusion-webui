@@ -1,0 +1,16 @@
+FROM python:3.10
+
+RUN apt-get update && apt-get install python3-venv libgl1 libglib2.0-0 libstdc++-12-dev google-perftools ffmpeg libsm6 libxext6  -y
+
+RUN adduser --system --disabled-password --home /home/stable-diffusion-user stable-diffusion-user
+#RUN adduser --system --no-create-home --disabled-password stable-diffusion-user && echo "stable-diffusion-user ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/stable-diffusion-user \
+#    && chmod 0440 /etc/sudoers.d/stable-diffusion-user
+
+RUN chown stable-diffusion-user /usr/src
+
+# Use a least privileged user
+USER stable-diffusion-user
+
+WORKDIR /usr/src
+
+RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git

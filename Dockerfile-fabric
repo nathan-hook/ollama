@@ -1,0 +1,7 @@
+FROM golang:1.23.0
+
+COPY ./brown-fox.txt /go/brown-fox.txt
+COPY ./IOS_Data_Commons_Workshop_Report.txt /go/IOS_Data_Commons_Workshop_Report.txt
+COPY ./.env /root/.config/fabric/.env
+RUN go install github.com/danielmiessler/fabric@latest
+RUN fabric --updatepatterns
