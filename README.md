@@ -15,11 +15,30 @@ as the password.
 Then you needed to download a model from Ollama:
 https://ollama.com/library?sort=popular
 
+## Downloading Models
+
+This is super confusing and no longer as straight foward as it use to be...
+
+Click on your Name Icon in the upper left -> Admin Panel
+
+Click on Settings tab.
+
+Click on side Connections tab.
+
+Click on the little Wrench Icon.
+
 FWIW, you have to be very clear on the name of the model you want to download.
 
-You downloaded llama3:8b
+You have downloaded:
+* llama3:8b
+* llama3.2:3b
+* mistral:7b
+* mistral-small:22b-instruct-2409-q2_K
 
-Then you set that model as your default.
+Then you set llama3.2:3b or llama3:8b as your default model.
+
+llama3.2:3b is suppose to be a really tiny model that you are using to experiment with using the Continue Intellij plugin:
+https://github.com/ollama/ollama/issues/7423
 
 
 Image Generation
